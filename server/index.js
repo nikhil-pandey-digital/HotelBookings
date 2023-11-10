@@ -2,6 +2,7 @@
 const express = require("express");
 const fs = require("fs");
 const csvtojson = require("csvtojson");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
@@ -26,10 +27,14 @@ if (!fs.existsSync(jsonFilePath)) {
     });
 }
 
+app.use(cors());
+
 app.get("/bookings", (req, res) => {
     const data= fs.readFileSync(jsonFilePath);
     const bookings= JSON.parse( data);
-  res.json(bookings);
+  res.status(200).json({
+    data: bookings
+  });
 });
 
 app.listen(port, () => {
