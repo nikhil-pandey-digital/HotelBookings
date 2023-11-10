@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  
 } from "recharts";
 
 import { ModifiedBookingData, visitorsPerDay } from "../types/types";
