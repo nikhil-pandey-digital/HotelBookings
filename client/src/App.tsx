@@ -6,7 +6,7 @@ import SparklineChart from "./components/SparklineChart";
 import DateRangePicker from "./components/DateRangePicker";
 import Navbar from "./components/Navbar";
 
-const API ="http://localhost:3000/bookings"
+const API = "http://localhost:3000/bookings";
 export default function App() {
   const [bookingsData, setBookingsData] = useState<ModifiedBookingData[]>([]);
 
@@ -46,7 +46,7 @@ export default function App() {
       <DateRangePicker onDateFilterChange={handleDateFilterChange} />
 
       <section className="m-4">
-        <div >
+        <div>
           <h1 className="text-3xl font-san  ">Visitors per Day</h1>
           <TimeSeriesChart
             data={bookingsData}
@@ -55,9 +55,7 @@ export default function App() {
         </div>
 
         <div>
-          <h1 className="mt-2 text-3xl font-san  ">
-            Vistiors per Country
-          </h1>
+          <h1 className="mt-2 text-3xl font-san  ">Vistiors per Country</h1>
           <ColumnChart data={bookingsData} dateRange={{ fromDate, toDate }} />
         </div>
 
